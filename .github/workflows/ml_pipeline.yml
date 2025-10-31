@@ -42,7 +42,7 @@ df = pd.read_csv("Business_Impact_Model.csv")
 assert not df.empty, "❌ Dataset is empty!"
 assert all(col in df.columns for col in ["Revenue_Current", "Revenue_Optimized"]), "❌ Missing key columns!"
 print("✅ Data validation passed successfully!")
-EOF
+EOF # ⬅ تم إزالة المسافات البادئة
 
       # 5️⃣ Model Retraining Trigger (If Data Changed)
       - name: 🔁 Check for Data Changes
@@ -72,7 +72,7 @@ model = LinearRegression().fit(X, y)
 joblib.dump(model, "retrained_model.pkl")
 
 print("✅ Model retrained and saved successfully!")
-EOF
+EOF # ⬅ تم إزالة المسافات البادئة
 
       # 6️⃣ Build Docker Image
       - name: 🏗 Build Docker Image
@@ -91,7 +91,7 @@ report = pd.DataFrame({
 })
 report.to_csv("ci_cd_report.csv", index=False)
 print("📁 CI/CD report created successfully!")
-EOF
+EOF # ⬅ تم إزالة المسافات البادئة
 
       - name: 💾 Upload Report
         uses: actions/upload-artifact@v4
