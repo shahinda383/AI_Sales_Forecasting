@@ -1,0 +1,10 @@
+2025-10-31 09:09:48,501 - INFO - \U0001f680 Starting MLOps Pipeline Setup...
+2025-10-31 09:09:49,619 - INFO - \u2705 Dataset loaded successfully with shape: (706044, 5)
+2025-10-31 09:09:50,003 - INFO - \U0001f9f9 Data cleaned. Final shape: (706044, 8)
+2025-10-31 09:09:50,177 - INFO - \U0001f4c8 EDA Summary: {'Columns': ['Date', 'Revenue_Current', 'Revenue_Optimized', 'Revenue_Change', 'Growth_%', 'Month', 'Quarter', 'Year'], 'Missing Values': {'Date': 0, 'Revenue_Current': 0, 'Revenue_Optimized': 0, 'Revenue_Change': 0, 'Growth_%': 0, 'Month': 0, 'Quarter': 0, 'Year': 0}, 'Correlations': {'Revenue_Optimized': 1.0, 'Revenue_Current': 0.9999596010965363, 'Revenue_Change': 0.9957992792674256, 'Growth_%': 0.0077370472613946095, 'Month': nan, 'Quarter': nan, 'Year': nan}}
+2025-10-31 09:09:51,385 - INFO - \U0001f4e6 Data scaling completed.
+2025-10-31 09:19:04,017 - INFO - \U0001f3c6 Best Model Parameters: {'learning_rate': 0.05, 'max_depth': 3, 'n_estimators': 200, 'subsample': 0.8}
+2025-10-31 09:19:04,283 - INFO - \U0001f4ca Model Performance: {'R2 Score': 0.9673016151092242, 'MAE': 343.57499652850726, 'RMSE': 4874.254935880129}
+2025-10-31 09:20:12,554 - INFO - \U0001f9e9 SHAP explainability completed.
+2025-10-31 09:20:15,036 - INFO - \U0001f4be Model and predictions saved successfully.
+2025-10-31 09:20:15,043 - INFO - \U0001f9e0 Sample Prediction: 431728.875
