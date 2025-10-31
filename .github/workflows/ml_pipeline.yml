@@ -37,12 +37,12 @@ jobs:
       - name: 🧪 Validate Dataset
         run: |
           python - <<'EOF'
-import pandas as pd
-df = pd.read_csv("Business_Impact_Model.csv")
-assert not df.empty, "❌ Dataset is empty!"
-assert all(col in df.columns for col in ["Revenue_Current", "Revenue_Optimized"]), "❌ Missing key columns!"
-print("✅ Data validation passed successfully!")
-EOF # ⬅ تم إزالة المسافات البادئة
+          import pandas as pd
+          df = pd.read_csv("Business_Impact_Model.csv")
+          assert not df.empty, "❌ Dataset is empty!"
+          assert all(col in df.columns for col in ["Revenue_Current", "Revenue_Optimized"]), "❌ Missing key columns!"
+          print("✅ Data validation passed successfully!")
+EOF
 
       # 5️⃣ Model Retraining Trigger (If Data Changed)
       - name: 🔁 Check for Data Changes
