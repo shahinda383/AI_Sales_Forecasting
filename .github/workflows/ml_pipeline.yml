@@ -36,13 +36,13 @@ jobs:
       # 4️⃣ Data Validation Tests
       - name: 🧪 Validate Dataset
         run: |
-          python - <<'EOF'
-          import pandas as pd
-          df = pd.read_csv("Business_Impact_Model.csv")
-          assert not df.empty, "❌ Dataset is empty!"
-          assert all(col in df.columns for col in ["Revenue_Current", "Revenue_Optimized"]), "❌ Missing key columns!"
-          print("✅ Data validation passed successfully!")
-EOF
+          python -c "
+import pandas as pd
+df = pd.read_csv('Business_Impact_Model.csv')
+assert not df.empty, '❌ Dataset is empty!'
+assert all(col in df.columns for col in ['Revenue_Current', 'Revenue_Optimized']), '❌ Missing key columns!'
+print('✅ Data validation passed successfully!')
+"
 
       # 5️⃣ Model Retraining Trigger (If Data Changed)
       - name: 🔁 Check for Data Changes
@@ -59,20 +59,20 @@ EOF
         if: steps.data_change.outputs.data_changed == 'true'
         run: |
           echo "⚡ Data changed! Retraining model..."
-          python - <<'EOF'
+          python -c "
 import pandas as pd, numpy as np
 from sklearn.linear_model import LinearRegression
 import joblib
 
-df = pd.read_csv("Business_Impact_Model.csv")
+df = pd.read_csv('Business_Impact_Model.csv')
 X = np.array(df.index).reshape(-1, 1)
-y = df["Revenue_Optimized"]
+y = df['Revenue_Optimized']
 
 model = LinearRegression().fit(X, y)
-joblib.dump(model, "retrained_model.pkl")
+joblib.dump(model, 'retrained_model.pkl')
 
-print("✅ Model retrained and saved successfully!")
-EOF # ⬅ تم إزالة المسافات البادئة
+print('✅ Model retrained and saved successfully!')
+"
 
       # 6️⃣ Build Docker Image
       - name: 🏗 Build Docker Image
@@ -82,16 +82,16 @@ EOF # ⬅ تم إزالة المسافات البادئة
       # 7️⃣ Generate CI/CD Report
       - name: 📊 Generate CI/CD Report
         run: |
-          python - <<'EOF'
+          python -c "
 import pandas as pd, datetime
 report = pd.DataFrame({
-    "Step": ["Data Validation", "Model Retraining", "Docker Build", "Deploy"],
-    "Status": ["✅", "✅", "✅", "✅"],
-    "Timestamp": [datetime.datetime.now()] * 4
+    'Step': ['Data Validation', 'Model Retraining', 'Docker Build', 'Deploy'],
+    'Status': ['✅', '✅', '✅', '✅'],
+    'Timestamp': [datetime.datetime.now()] * 4
 })
-report.to_csv("ci_cd_report.csv", index=False)
-print("📁 CI/CD report created successfully!")
-EOF # ⬅ تم إزالة المسافات البادئة
+report.to_csv('ci_cd_report.csv', index=False)
+print('📁 CI/CD report created successfully!')
+"
 
       - name: 💾 Upload Report
         uses: actions/upload-artifact@v4
