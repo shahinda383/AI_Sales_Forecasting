@@ -1,0 +1,10 @@
+artifact_location: file:c:/Users/Khaled/Depi_Amit_A1_BNS3/Depi_Amit_A1_BNS3/DEPI_Final_Project/MLOps_Deployment/mlruns/353194232691781519/models/m-d93f2b9082cf441e903355a20b8f3024/artifacts
+creation_timestamp: 1761895717268
+experiment_id: '353194232691781519'
+last_updated_timestamp: 1761895724319
+model_id: m-d93f2b9082cf441e903355a20b8f3024
+model_type: null
+name: model
+source_run_id: 23f31a5730e44953bcf79fba9a597e7e
+status: 2
+status_message: null
